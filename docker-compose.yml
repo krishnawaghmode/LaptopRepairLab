@@ -1,0 +1,25 @@
+services:
+  nextjs:
+    container_name: LaptopRepairLab-project
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    expose:
+      - '5000'
+    env_file:
+      - .env
+    environment:
+      - PORT=${PORT}
+      - NODE_ENV=${NODE_ENV}
+      - VIRTUAL_HOST=${VIRTUAL_HOST}
+      - VIRTUAL_PORT=${VIRTUAL_PORT}
+      - LETSENCRYPT_HOST=${LETSENCRYPT_HOST}
+      - GA_ID_DEV=${GA_ID_DEV}
+      - GA_ID_PROD=${GA_ID_PROD}
+    networks:
+      - global-prod-network
+
+networks:
+  global-prod-network:
+    external: true

@@ -1,0 +1,29 @@
+name: Deploy live server
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: [self-hosted, repairLabLabel]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+
+      - name: Copy code
+        run: |
+          rsync -a --delete \
+            --exclude='.git' \
+            --exclude='.env' \
+            ./ /home/krishna/projects/repairLab/app/
+
+      - name: Build start Docker
+        working-directory: /home/krishna/projects/repairLab/app
+        run: |
+          # docker compose down --remove-orphans
+          docker compose build --no-cache
+          docker compose up -d --force-recreate --remove-orphans --build
+          docker image prune -f
