@@ -13,7 +13,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v5
 
-      - name: Copy code
+      - name: Copy
         run: |
           rsync -a --delete \
             --exclude='.git' \
