@@ -1,5 +1,5 @@
 services:
-  nextjs:
+  RepairLab:
     container_name: LaptopRepairLab-project
     build:
       context: .
