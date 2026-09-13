@@ -6,7 +6,7 @@ services:
       dockerfile: Dockerfile
     restart: unless-stopped
     expose:
-      - '5000'
+      - '6000'
     env_file:
       - .env
     environment:
