@@ -18,10 +18,10 @@ jobs:
           rsync -a --delete \
             --exclude='.git' \
             --exclude='.env' \
-            ./ /opt/projects/repairLab
+            ./ /opt/projects/repair-lab
 
       - name: Build start Docker
-        working-directory: /opt/projects/repairLab
+        working-directory: /opt/projects/repair-lab
         run: |
           # docker compose down --remove-orphans
           docker compose build --no-cache
