@@ -88,7 +88,7 @@ export default function Home() {
                 className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/10 px-6 py-3.5 font-bold text-white transition hover:bg-white/20"
               >
                 <span>📞</span>
-                99605 26832
+                9960526832
               </a>
             </div>
 
